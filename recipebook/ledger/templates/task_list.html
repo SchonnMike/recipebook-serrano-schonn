@@ -4,6 +4,10 @@
     <title>Task List</title>
 </head>
 <body>
-    
+    <ul>
+        {% for task in taks %}
+            <li>{{ task }}</li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
