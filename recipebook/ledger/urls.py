@@ -4,5 +4,7 @@ from . import views
 urlpatterns = [
     path("", views.home, name="home"),
     path("tasks/", views.tasks, name="tasks"),
-    path("basic/<int:num>", views.basicParams, name="basicParams"),
+    path("basic/<int:num>/", views.basicParams, name="basicParams"),
 ]
+
+app_name = "ledger"
