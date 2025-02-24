@@ -2,9 +2,8 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path("", views.home, name="home"),
-    path("tasks/", views.tasks, name="tasks"),
-    path("basic/<int:num>/", views.basicParams, name="basicParams"),
+    path("recipes/list/", views.basicParams, name="basicParams"),
+    path("recipe/<int:num>/", views.tasks, name="tasks"),
 ]
 
 app_name = "ledger"
