@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Task List</title>
+    <title>{{ recipe.name }}</title>
 </head>
 <body>
+    <h1>Recipe Book</h1>
+    <h2>Name: {{ recipe.name }}</h2>
+    <h3>Ingredients:</h3>
     <ul>
-        {% for task in taks %}
-            <li>{{ task }}</li>
+        {% for ingredient in recipe.ingredients %}
+            <li>{{ ingredient.quantity }} {{ ingredient.name }}</li>
         {% endfor %}
     </ul>
 </body>
