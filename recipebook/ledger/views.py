@@ -14,3 +14,14 @@ def basicParams(request, num=1):
     else:
         number = "nth"
     return render(request, 'basicParams.html', {'number': number})
+
+def tasks(request):
+    ctx = {
+        'tasks':[
+            "task1",
+            "task2",
+            "task3",
+            "task4"
+        ]
+    }
+    return render(request, 'task_list.html', ctx)
