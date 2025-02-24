@@ -1,29 +1,78 @@
 from django.shortcuts import render, HttpResponse
 from django.http import HttpResponse
-from django.template import loader
+from django.template import loaderfor
 
-def home(request):
-    return HttpResponse("hello world")
-
-def basicTemplate(request):
-    return render(request, 'basicParams.html')
-
-def basicParams(request, num=1):
-    if num == 1:
-        number = "first"
-    elif num ==2:
-        number = "second"
-    else:
-        number = "nth"
-    return render(request, 'basicParams.html', {'number': number})
-
-def tasks(request):
-    ctx = {
-        'tasks':[
-            "task1",
-            "task2",
-            "task3",
-            "task4"
-        ]
+recipes = [
+    {
+        "name": "Recipe 1",
+        "ingredients": [
+            {
+                "name": "tomato",
+                "quantity": "3pcs"
+            },
+            {
+                "name": "onion",
+                "quantity": "1pc"
+            },
+            {
+                "name": "pork",
+                "quantity": "1kg"
+            },
+            {
+                "name": "water",
+                "quantity": "1L"
+            },
+            {
+                "name": "sinigang mix",
+                "quantity": "1 packet"
+            }
+        ],
+        "link": "/recipe/1"
+    },
+    {
+        "name": "Recipe 2",
+        "ingredients": [
+            {
+                "name": "garlic",
+                "quantity": "1 head"
+            },
+            {
+                "name": "onion",
+                "quantity": "1pc"
+            },
+            {
+                "name": "vinegar",
+                "quantity": "1/2cup"
+            },
+            {
+                "name": "water",
+                "quanity": "1 cup"
+            },
+            {
+                "name": "salt",
+                "quantity": "1 tablespoon"
+            },
+            {
+                "name": "whole black peppers",
+                "quantity": "1 tablespoon"
+            },
+            {
+                "name": "pork",
+                "quantity": "1 kilo"
+            }
+        ],
+        "link": "/recipe/2"
     }
-    return render(request, 'task_list.html', ctx)
+]
+
+def basicParams(request):
+    # recipe list
+    return render(request, 'basicParams.html', {'recipes': recipes})
+
+def tasks(request, num):
+    # recipe task
+    if num == 1:
+        recipe = recipes[0]
+    elif num == 2:
+        recipe = recipes[1]
+    return render(request, 'task_list.html', {'recipe':recipe})
