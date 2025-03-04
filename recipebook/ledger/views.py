@@ -64,19 +64,12 @@ recipes = [
     }
 ]
 
-def tasksInDatabase(request):
-    items = TaskGroup.objects.all()
-    items = TaskGroup.objects.filter(name__contains="test")
-    return render(request, 'task_list_objects.html', {'tasks': items})
-
 def basicParams(request):
     # recipe list
+    recipes = Recipe.objects.all()
     return render(request, 'basicParams.html', {'recipes': recipes})
 
 def tasks(request, num):
     # recipe task
-    if num == 1:
-        recipe = recipes[0]
-    elif num == 2:
-        recipe = recipes[1]
+    recipe = get_object_or_404(Recipe, id=num)
     return render(request, 'task_list.html', {'recipe':recipe})
