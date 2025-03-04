@@ -64,6 +64,11 @@ recipes = [
     }
 ]
 
+def tasksInDatabase(request):
+    items = TaskGroup.objects.all()
+    items = TaskGroup.objects.filter(name__contains="test")
+    return render(request, 'task_list_objects.html', {'tasks': items})
+
 def basicParams(request):
     # recipe list
     return render(request, 'basicParams.html', {'recipes': recipes})
