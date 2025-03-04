@@ -1,10 +1,12 @@
 from django.db import models
 
-class TaskGroup(models.Model):
+class Ingredient(models.Model):
     name = models.CharField(max_length=50)
-    remarks = models.CharField(max_length=50, default="")
-    otherRemarks = models.CharField(max_length=50, default="")
 
-class MyNewTable(models.Model):
-    custom_id = models.BigAutoField(primary_key=True)
+class Recipe(models.Model):
     name = models.CharField(max_length=50)
+
+class RecipeIngredient(models.Model):
+    quantity = models.CharField(max_length=50)
+    ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
