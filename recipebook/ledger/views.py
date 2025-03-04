@@ -8,5 +8,5 @@ def basicParams(request):
 
 def tasks(request, num):
     # recipe task
-    recipe = get_object_or_404(Recipe, id=num)
+    recipe = Recipe.objects.get(id=num)
     return render(request, 'task_list.html', {'recipe':recipe})
