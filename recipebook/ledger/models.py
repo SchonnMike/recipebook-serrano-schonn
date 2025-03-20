@@ -6,6 +6,9 @@ class Ingredient(models.Model):
 
 class Recipe(models.Model):
     name = models.CharField(max_length=50)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="recipes")
+    created_on = models.DateTimeField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now=True)
 
 class RecipeIngredient(models.Model):
     quantity = models.CharField(max_length=50)
