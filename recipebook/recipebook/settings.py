@@ -124,7 +124,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #Redirect to this page after login succes
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/recipes/list/'
 
 #Redirect to this page after logout success
-LOGOUT_REDIRECT_URL = '/tasks/'
+LOGOUT_REDIRECT_URL = '/accounts/login/'
