@@ -1,8 +1,7 @@
 {% extends 'baseTemplate.html' %}
-{% block title %}Recipe Book{% endblock %}
+{% block page_title %}Recipe List{% endblock %}
 {% block content %}
     {% if user.is_authenticated %}
-        <h1>Recipe Book</h1>
         <ul>
             {% for recipe in recipes %}
                 <li>
