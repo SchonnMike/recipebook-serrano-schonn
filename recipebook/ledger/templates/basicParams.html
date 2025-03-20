@@ -1,16 +1,13 @@
-<!DOCTYPE html>
-<html lang="en-US">
-<head>
-    <title>Recipe Book</title>
-</head>
-<body>
-    <h1>Recipe Book</h1>
-    <ul>
-        {% for recipe in recipes %}
-            <li>
-                <a href="{% url 'ledger:tasks' recipe.id %}">{{ recipe.name }}</a>
-            </li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+{% extends 'baseTemplate.html' %}
+{% block page_title %}Recipe List{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        <ul>
+            {% for recipe in recipes %}
+                <li>
+                    <a href="{% url 'ledger:tasks' recipe.id %}">{{ recipe.name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}
