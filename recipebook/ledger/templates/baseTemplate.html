@@ -11,13 +11,8 @@
 			<div>
 				<ul class="navbar-nav">
 					<li class="nav-item">
-						<a class="nav-link" href="{% url 'ledger:basicParams' %}">Recipe List</a>
+						<a class="nav-link" href="{% url 'ledger:basicParams' %}">Recipe Book</a>
 					</li>
-					{% for recipe in recipes %}
-					<li class="nav-item">
-						<a class="nav-link" href="{% url 'ledger:tasks' recipe.id %}">{{ recipe.name }}</a>
-					</li>
-					{% endfor %}
 				</ul>
 			</div>
 			<div>
