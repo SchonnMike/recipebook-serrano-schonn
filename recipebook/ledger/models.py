@@ -6,7 +6,7 @@ class Ingredient(models.Model):
 
 class Recipe(models.Model):
     name = models.CharField(max_length=50)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="recipes")
+    author = models.ForeignKey(User, on_delete=models.CASCADE, null=True, default=1)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
 
@@ -17,7 +17,7 @@ class RecipeIngredient(models.Model):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    name = models.CharField(max_length=50, default="")
-    bio = models.CharField(max_length=255, default="")
+    name = models.CharField(max_length=50)
+    bio = models.CharField(max_length=255)
     year_level = models.IntegerField()
     course = models.CharField(max_length=10)
