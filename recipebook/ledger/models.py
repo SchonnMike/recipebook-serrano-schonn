@@ -13,8 +13,8 @@ class RecipeIngredient(models.Model):
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name="ingredients")
 
 class Profile(models.Model):
-	user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
     bio = models.CharField(max_length=255)
-	year_level = models.IntegerField()
-	course = models.CharField(max_length=10)
+    year_level = models.IntegerField()
+    course = models.CharField(max_length=10)
