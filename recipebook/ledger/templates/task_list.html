@@ -1,13 +1,17 @@
-{% if user.is_authenticated %}
-    <h1>Recipe Book</h1>
-    <h2>Name: {{ recipe.name }}</h2>
-    <h3>Author: {{ recipe.author.username }}</h3>
-    <h3>Created On: {{ recipe.created_on }}</h3>
-    <h3>Updated On: {{ recipe.updated_on }}</h3>
-    <h3>Ingredients:</h3>
-    <ul>
-        {% for ingredient in recipe.ingredients.all %}
-            <li>{{ ingredient.quantity }} {{ ingredient.ingredient.name }}</li>
-        {% endfor %}
-    </ul>
-{% endif %}
+{% extends 'baseTemplate.html' %}
+{% block title %}Recipe Details{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        <h1>Recipe Book</h1>
+        <h2>Name: {{ recipe.name }}</h2>
+        <h3>Author: {{ recipe.author.username }}</h3>
+        <h3>Created On: {{ recipe.created_on }}</h3>
+        <h3>Updated On: {{ recipe.updated_on }}</h3>
+        <h3>Ingredients:</h3>
+        <ul>
+            {% for ingredient in recipe.ingredients.all %}
+                <li>{{ ingredient.quantity }} {{ ingredient.ingredient.name }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}
