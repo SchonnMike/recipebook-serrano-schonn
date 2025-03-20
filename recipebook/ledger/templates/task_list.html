@@ -5,9 +5,9 @@
     {% if user.is_authenticated %}
         <h1>Recipe Book</h1>
         <h2>Name: {{ recipe.name }}</h2>
-        <h4>Author: {{ recipe.author.username }}</h3>
-        <h4>Created On: {{ recipe.created_on }}</h3>
-        <h4>Updated On: {{ recipe.updated_on }}</h3>
+        <h4>Author: {{ recipe.author.profile.name }}</h3>
+        <h5>Created On: {{ recipe.created_on }}</h3>
+        <h5>Updated On: {{ recipe.updated_on }}</h3>
         <h3>Ingredients:</h3>
         <ul>
             {% for ingredient in recipe.ingredients.all %}
