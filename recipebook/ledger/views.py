@@ -9,6 +9,7 @@ def basicParams(request):
     recipes = Recipe.objects.all()
     return render(request, 'basicParams.html', {'recipes': recipes})
 
+@login_required
 def tasks(request, num):
     # recipe task
     recipe = Recipe.objects.get(id=num)
