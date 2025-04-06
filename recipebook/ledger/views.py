@@ -46,3 +46,17 @@ def add_recipe(request):
     recipes = Recipe.objects.all()
 
     return render(request, 'add_recipe.html', {'form': form, 'formset': formset}, 'recipes': recipes)
+
+@login_required
+def add_image(request, pk):
+    recipe = Recipe.objects.get(id=pk)
+    if request.method == 'POST':
+        form = RecipeImageForm(request.POST, request.FILES)
+        if form.is_valid():
+            recipe_image = form.save(commit=False)
+            recipe_image.recipe = recipe
+            recipe_image.save()
+            return redirect('ledger:tasks', num=pk)
+    else:
+        form = RecipeImageForm()
+    return render(request, 'add_image.html', {'form': form, 'recipe': recipe})
