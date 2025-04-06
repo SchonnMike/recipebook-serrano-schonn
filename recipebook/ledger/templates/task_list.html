@@ -12,5 +12,14 @@
                 <li>{{ ingredient.quantity }} {{ ingredient.ingredient.name }}</li>
             {% endfor %}
         </ul>
+        <h3>Images:</h3>
+        <ul>
+            {% for img in recipe.images.all %}
+                <li>
+                    <img src="{{ img.image.url }}" alt="{{ img.description }}"/>
+                    <p>{{ img.description }}</p>
+                </li>
+            {% endfor %}
+        </ul>
     {% endif %}
 {% endblock %}
