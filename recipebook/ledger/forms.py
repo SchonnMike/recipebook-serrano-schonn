@@ -10,3 +10,8 @@ class RecipeIngredientForm(forms.ModelForm):
     class Meta:
         model = RecipeIngredient
         fields = '__all__'
+
+class RecipeImageForm(forms.ModelForm):
+    class Meta:
+        model = RecipeImage
+        fields = '__all__'
