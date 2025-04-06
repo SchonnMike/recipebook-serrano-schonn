@@ -45,7 +45,7 @@ def add_recipe(request):
 
     recipes = Recipe.objects.all()
 
-    return render(request, 'add_recipe.html', {'form': form, 'formset': formset}, 'recipes': recipes)
+    return render(request, 'add_recipe.html', {'form': form, 'formset': formset, 'recipes': recipes})
 
 @login_required
 def add_image(request, pk):
