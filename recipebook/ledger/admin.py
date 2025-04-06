@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Recipe, Ingredient, RecipeIngredient, Profile
+from .models import Recipe, Ingredient, RecipeIngredient, Profile, RecipeImage
 from django.contrib.auth.models import User
 
 class IngredientAdmin(admin.ModelAdmin):
