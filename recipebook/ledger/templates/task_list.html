@@ -21,5 +21,6 @@
                 </li>
             {% endfor %}
         </ul>
+        <a href="{% url 'ledger:add_image' recipe.id %}">Upload New Image</a>
     {% endif %}
 {% endblock %}
