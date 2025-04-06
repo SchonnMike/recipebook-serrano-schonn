@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Recipe, Ingredient, RecipeIngredient, Profile
+from .models import Recipe, Ingredient, RecipeIngredient, Profile, RecipeImage
 from django.contrib.auth.models import User
 
 class IngredientAdmin(admin.ModelAdmin):
@@ -10,11 +10,16 @@ class IngredientAdmin(admin.ModelAdmin):
 class RecipeIngredientAdmin(admin.ModelAdmin):
     model = RecipeIngredient
 
+class RecipeImageInline(admin.TabularInline):
+    model = RecipeImage
+    extra = 1
+
 class RecipeAdmin(admin.ModelAdmin):
     model = Recipe
     list_display = ('name',)
     search_fields = ('name',)
     list_filter = ('name',)
+    inlines = [RecipeImageInline]
 
 class ProfileInline(admin.StackedInline):
 	model = Profile

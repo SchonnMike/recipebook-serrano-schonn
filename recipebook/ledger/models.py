@@ -21,3 +21,8 @@ class Profile(models.Model):
     bio = models.CharField(max_length=255)
     year_level = models.IntegerField()
     course = models.CharField(max_length=10)
+
+class RecipeImage(models.Model):
+    image = models.ImageField(upload_to='recipe_images/')
+    description = models.CharField(max_length=255)
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name="images")
