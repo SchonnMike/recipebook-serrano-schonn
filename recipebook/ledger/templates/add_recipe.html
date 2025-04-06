@@ -1,0 +1,22 @@
+{% extends 'baseTemplate.html' %}
+{% block page_title %}Add a Recipe{% endblock %}
+{% block content %}
+    <h1>Add a New Recipe</h1>
+    <h4>Existing Recipes:</h4>
+    <ul>
+        {% for recipe in recipes %}
+            <li>Recipe Name: {{ recipe.name }}</li>
+        {% endfor %}
+    </ul>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {{ formset.management_form }}
+        
+        <h4>Ingredients</h4>
+        {% for f in formset %}
+            {{ f.as_p }}
+        {% endfor %}
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}
