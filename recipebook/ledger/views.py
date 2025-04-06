@@ -43,4 +43,6 @@ def add_recipe(request):
         form = RecipeForm()
         formset = RecipeIngredientFormSet(queryset=RecipeIngredient.objects.none())
 
-    return render(request, 'add_recipe.html', {'form': form, 'formset':formset})
+    recipes = Recipe.objects.all()
+
+    return render(request, 'add_recipe.html', {'form': form, 'formset': formset}, 'recipes': recipes)
