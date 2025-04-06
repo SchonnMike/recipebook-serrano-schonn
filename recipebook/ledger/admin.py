@@ -10,7 +10,7 @@ class IngredientAdmin(admin.ModelAdmin):
 class RecipeIngredientAdmin(admin.ModelAdmin):
     model = RecipeIngredient
 
-class RecipeImageInLine(admin.TabularInline):
+class RecipeImageInline(admin.TabularInline):
     model = RecipeImage
     extra = 1
 
