@@ -10,11 +10,16 @@ class IngredientAdmin(admin.ModelAdmin):
 class RecipeIngredientAdmin(admin.ModelAdmin):
     model = RecipeIngredient
 
+class RecipeImageInLine(admin.TabularInline):
+    model = RecipeImage
+    extra = 1
+
 class RecipeAdmin(admin.ModelAdmin):
     model = Recipe
     list_display = ('name',)
     search_fields = ('name',)
     list_filter = ('name',)
+    inlines = [RecipeImageInline]
 
 class ProfileInline(admin.StackedInline):
 	model = Profile
